@@ -1,0 +1,79 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex 
+MDScreen:
+    name:"xx"
+    MDFloatLayout:
+        size_hint:1,1
+        md_bg_color:get_color_from_hex("#B9BDBD")
+
+        Karma:
+            source:"kagit.png"
+            pos_hint:{"center_x":.35,"center_y":.45}
+            radius:[100,]  
+            size_hint:None,None
+            size:100,100
+            on_release:app.kagit()
+        Karma:
+            source:"tas.png"
+            pos_hint:{"center_x":.50,"center_y":.45}
+            radius:[100,]  
+            size_hint:None,None
+            size:100,100
+            on_release:app.tas()
+
+        
+        Karma:
+            source:"makas.png"
+            pos_hint:{"center_x":.65,"center_y":.45}
+            radius:[100,]  
+            size_hint:None,None
+            size:100,100
+            on_release:app.makas()
+
+        MDLabel:
+            markup:True
+            text: "[color=#C4851E]PC SEÇİM[/color]"   
+            font_name:"Constani.ttf"
+            pos_hint: {"center_x": 0.30, "center_y":0.80}
+            theme_text_color: "Secondary"
+            halign:"center"
+            
+        FitImage:
+            source:"" #boş/empty
+            
+            size_hint:None,None
+            size:100,100
+            pos_hint: {"center_x": 0.30, "center_y":0.70}
+            id:pcsecim
+        MDLabel:
+            markup:True
+            text: "[color=#C4851E]BENİM SEÇİMİM [/color]"   #[color=#baa2bd] [size=35]L[/size]
+            font_name:"Constani.ttf"
+            pos_hint: {"center_x": 0.60, "center_y":0.80}
+            theme_text_color: "Secondary"
+            halign:"center"
+            
+        FitImage:
+            source:""
+            
+            size_hint:None,None
+            size:100,100
+            pos_hint: {"center_x": 0.60, "center_y":0.70}
+            id:benimsecim
+
+            
+        MDLabel:
+            markup:True
+            text: "[color=#C4851E]PC PUAN[/color]"   
+            font_name:"Constani.ttf"
+            pos_hint: {"center_x": 0.30, "center_y":0.90}
+            theme_text_color: "Secondary"
+            halign:"center"
+            id:pcpuan
+        MDLabel:
+            markup:True
+            text: "[color=#C4851E]BENİM PUANIM:[/color]"   
+            font_name:"Constani.ttf"
+            pos_hint: {"center_x": 0.65, "center_y":0.90}
+            theme_text_color: "Secondary"
+            halign:"center"
+            id:benimpuan
