@@ -1,0 +1,17 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex 
+MDScreen:
+    name:"zz"
+    AnchorLayout:
+        id: ekle
+        md_bg_color:get_color_from_hex("#c0392b")
+    MDRaisedButton:
+		text:"yükle"
+		on_release:
+		    app.file_chooser()
+            app.add_datatable()
+
+    MDLabel:
+		id:yazı
+		text:" "
+		halign:"center"
+        pos_hint:{"center_x":.85,"center_y":.1}
