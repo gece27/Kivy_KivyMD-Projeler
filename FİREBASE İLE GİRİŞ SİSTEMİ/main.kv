@@ -1,0 +1,68 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex 
+MDScreen:
+    name:"z"
+    Panel:
+        elevation:10
+        pos_hint:{"center_x":.5,"center_y":.5}
+        size_hint:.35,.50 
+        canvas.before:
+            Color:
+                rgba: (1,0,0, 1)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [15]
+            Color:
+                rgba: (253/255, 245/255, 230/255, 1)
+            RoundedRectangle:
+                size: self.width-20, self.height-20
+                pos: self.x+10, self.y+10
+                
+        MDLabel:
+            markup:True
+            text: "[color=#bae6bd]WELCOME [/color]"   #[color=#baa2bd] [size=35]L[/size]
+            font_name:"Constani.ttf"
+            pos_hint: {"center_x": 0.50, "center_y":0.95}
+            theme_text_color: "Secondary"
+            halign:"center"       
+        MDTextFieldRound:
+            id:username
+            hint_text:"username"
+            icon_right:"account"
+            pos_hint: {"center_x": 0.50, "center_y":0.75}
+            size_hint_x:.45
+            
+            font_size:18
+
+        #password part
+        MDTextFieldRound:
+            id:password
+            hint_text:"password"
+            
+            pos_hint: {"center_x": 0.50, "center_y":0.55}
+            size_hint_x:.45
+            
+            font_size:18
+            password:True
+
+        MDIconButton:
+            icon: "eye"
+            pos_hint: {"center_x": 0.67, "center_y":0.55}
+            on_release:app.psw()
+            opacity:.5 
+            id:l
+            
+
+        MDRoundFlatButton:
+            text:"login"
+            pos_hint: {"center_x": 0.35, "center_y":0.25}
+            font_size:12
+            on_release:app.login(username.text,password.text)
+            
+          
+        
+        MDRoundFlatButton:
+            text:"delete"
+            pos_hint: {"center_x": 0.65, "center_y":0.25}
+            font_size:12
+            on_release:app.delete()
