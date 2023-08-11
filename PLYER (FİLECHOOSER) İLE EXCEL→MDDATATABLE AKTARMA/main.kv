@@ -1,0 +1,22 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex 
+MDScreen:
+    name:"zz"
+    AnchorLayout:
+        id: ekle
+    MDRaisedButton:
+		text:"yükle"
+		on_release:
+		    app.file_chooser()
+    MDRaisedButton:
+		text:"tablo getir"
+		on_release:
+		    app.add_datatable()
+        pos_hint:{"center_x":.5,"center_y":.15}
+
+
+	#eğer sadece yukleme tusuyla tablo ıstıyorsan
+MDRaisedButton:
+		text:"yükle"
+		on_release:
+		    app.file_chooser()
+            app.add_datatable()
