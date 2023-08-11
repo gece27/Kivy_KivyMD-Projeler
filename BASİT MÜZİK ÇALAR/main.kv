@@ -1,0 +1,93 @@
+#: import ew kivy.uix.effectwidget
+#: import get_color_from_hex kivy.utils.get_color_from_hex
+
+MDScreen:
+    name:"sayfa"
+    EffectWidget:
+        effects:ew.VerticalBlurEffect(size=10),ew.HorizontalBlurEffect(size=10)
+        FitImage:
+            source:"manzarason.jpg"
+    MDCarousel:
+        id:sl   
+        Card:
+            md_bg_color:get_color_from_hex("#565756")
+            size_hint:.5,.75
+            pos_hint:{"center_x":.5,"center_y":.5}
+            elevation:10
+            radius:[15,15,15,15]
+            MDBoxLayout:
+                id:sc
+                size_hint:None,None
+                size:(125,125)
+                pos_hint:{"center_x":.5,"center_y":.8}        
+                RotatImage:
+                    angle:sc.angle
+                    source:"manzarason.jpg"
+                    radius:[125,]     
+            Label:
+                id: song_title
+                text: ""
+                text_size: self.size
+                font_size: 32
+                valign: "middle"
+                halign: "center"
+                pos_hint:{"center_x":.5,"center_y":.55}   
+
+            Slider:
+                id: slider
+                min: 0
+                max: 1
+                step: 1
+                value: 0
+                pos_hint:{"center_x":.5,"center_y":.3}   
+                on_value: 
+                    app.change(self.value)
+                        
+            Tus:
+                text: "oynat"
+                font_size: 32
+                    
+                pos_hint:{"center_x":.35,"center_y":.15}
+                size_hint:None,None
+                size:(50,50)
+                source:"baslatma.png"
+                radius:[50]
+                on_release: app.oynat(slider.value)
+        
+            Tus:
+                font_size: 32   
+                pos_hint:{"center_x":.15,"center_y":.15}
+                size_hint:None,None
+                size:(50,50)
+                source:"geributonu.png"
+                radius:[50]
+            
+            Tus:
+                font_size: 32 
+                pos_hint:{"center_x":.75,"center_y":.15}
+                size_hint:None,None
+                size:(50,50)
+                source:"ileributonu.png"
+                radius:[50]
+                    
+                
+            Tus:
+                text: "durdur"
+                font_size: 32 
+                size_hint:None,None
+                pos_hint:{"center_x":.55,"center_y":.15}
+                size:(50,50)
+                source:"stop.png"
+                radius:[50]
+                on_release: app.durdur(slider.value)
+  
+
+<RotatImage@FitImage>:
+    angle:0
+    canvas.before:
+        PushMatrix
+        Rotate:
+            angle:root.angle
+            origin:self.center
+    canvas.after:
+        PopMatrixfrom
