@@ -1,0 +1,82 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex 
+MDScreen:
+    name:"xx"
+    MDLabel:
+        markup:True
+        text: "[color=#1144A4][size=35] VIDEO-AUDIO DOWNLOADER [/size][/color]"   #ş vb yazma
+        pos_hint: {"center_x": 0.50, "center_y":0.97}
+        halign:"center" #yazıyı ortalar
+    ##
+    MDLabel:
+        markup:True
+        text: "[color=#1144A4][size=17] URL-> [/size][/color]"   #ş vb yazma
+        pos_hint: {"center_x": 0.10, "center_y":0.75}
+        halign:"center" 
+
+    MDTextFieldRound:
+        icon_left: 'search'
+        normal_color: app.theme_cls.accent_color
+        pos_hint: {"center_x": 0.35, "center_y":0.75}
+        size_hint:.35,.07
+        id:url
+    #
+    MDLabel:
+        markup:True
+        text: "[color=#242526][size=17] VIDEO [/size][/color]"   #ş vb yazma
+        pos_hint: {"center_x": 0.65, "center_y":0.75}
+        halign:"center" 
+
+    MDCheckbox:
+        pos_hint:{"center_x":.70,"center_y":0.75}
+        size_hint:None,None
+        size:50,50
+        group:"group"
+        on_active:app.video()
+       
+    #
+    MDLabel:
+        markup:True
+        text: "[color=#242526][size=17]AUDIO[/size][/color]"   #ş vb yazma
+        pos_hint: {"center_x": 0.85, "center_y":0.75}
+        halign:"center" 
+    MDCheckbox:
+        pos_hint:{"center_x":.90,"center_y":0.75}
+        size_hint:None,None
+        size:50,50
+        group:"group"  
+        on_active:app.audio()  
+        
+    ##
+    MDLabel:
+        markup:True
+        text: "[color=#1144A4][size=17]VIDEO TITLE->[/size][/color]"   #ş vb yazma
+        pos_hint: {"center_x": 0.25, "center_y":0.55}
+        halign:"center" 
+
+    MDLabel:
+        markup:True
+        text: "[color=#1144A4][size=17]""[/size][/color]"   #ş vb yazma
+        pos_hint: {"center_x": 0.65, "center_y":0.55}
+        halign:"center" 
+        id:title
+    ##
+
+    MDLabel:
+        markup:True
+        text: "[color=#1144A4][size=17]VIDEO LENGTH->[/size][/color]"   #ş vb yazma
+        pos_hint: {"center_x": 0.25, "center_y":0.35}
+        halign:"center" 
+    
+    MDLabel:
+        markup:True
+        text: "[color=#1144A4][size=17]""[/size][/color]"   #ş vb yazma
+        pos_hint: {"center_x": 0.65, "center_y":0.35}
+        halign:"center" 
+        id:length
+    ##
+
+    MDRoundFlatButton:
+        text: "download"
+        text_color:get_color_from_hex("#CB6F27")
+        pos_hint:{"center_x":.5,"center_y":.15}
+        on_release:app.dwn(url.text)
